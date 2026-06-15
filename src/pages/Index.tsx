@@ -57,7 +57,7 @@ const Index = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <button onClick={() => scrollTo('home')} className="font-display font-bold text-xl tracking-tight">
-            ГОРОД<span className="text-accent">.</span>
+            CityEvent<span className="text-accent">.</span>
           </button>
           <nav className="hidden md:flex items-center gap-7">
             {NAV.map((n) => (
@@ -290,7 +290,7 @@ const Index = () => {
 
       <footer className="bg-foreground text-background/50 border-t border-background/10 py-8">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-          <span className="font-display font-bold text-background text-lg">ГОРОД<span className="text-accent">.</span></span>
+          <span className="font-display font-bold text-background text-lg">CityEvent<span className="text-accent">.</span></span>
           <span>© 2026 Портал городских развлечений</span>
         </div>
       </footer>
