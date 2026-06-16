@@ -14,9 +14,9 @@ const NAV = [
 ];
 
 const EVENTS = [
-  { tag: 'Музыка', title: 'Ночь джаза в парке', date: '18 июня', place: 'Городской парк', color: 'bg-accent' },
-  { tag: 'Театр', title: 'Премьера «Город снов»', date: '21 июня', place: 'Драмтеатр', color: 'bg-foreground' },
-  { tag: 'Маркет', title: 'Фестиваль уличной еды', date: '24 июня', place: 'Набережная', color: 'bg-accent' },
+  { tag: 'Музыка', title: 'Ночь джаза в парке', date: '18 июня', place: 'Городской парк', color: 'bg-accent', img: 'https://cdn.poehali.dev/projects/8d49f96f-2bd7-47bd-979c-3e2e4e90d77c/files/259f0af4-6816-4de6-85ed-c40ca7f47b93.jpg' },
+  { tag: 'Театр', title: 'Премьера «Город снов»', date: '21 июня', place: 'Драмтеатр', color: 'bg-foreground', img: 'https://cdn.poehali.dev/projects/8d49f96f-2bd7-47bd-979c-3e2e4e90d77c/files/183be967-0bbb-4113-b00c-b06fb94594d0.jpg' },
+  { tag: 'Маркет', title: 'Фестиваль уличной еды', date: '24 июня', place: 'Набережная', color: 'bg-accent', img: 'https://cdn.poehali.dev/projects/8d49f96f-2bd7-47bd-979c-3e2e4e90d77c/files/b8344a07-1e3f-4fa5-9387-a0a3f4453a7c.jpg' },
 ];
 
 const AFISHA = [
@@ -127,15 +127,19 @@ const Index = () => {
           <SectionHead num="01" title="События" sub="Что происходит в городе прямо сейчас" />
           <div className="grid md:grid-cols-3 gap-5 mt-12">
             {EVENTS.map((e, i) => (
-              <article key={i} className="group border border-border rounded-2xl p-6 hover:border-accent transition-colors bg-card">
-                <div className="flex items-center justify-between mb-10">
-                  <span className={`${e.color} text-background text-xs px-3 py-1 rounded-full`}>{e.tag}</span>
-                  <span className="text-sm text-muted-foreground">{e.date}</span>
+              <article key={i} className="group border border-border rounded-2xl overflow-hidden hover:border-accent transition-colors bg-card">
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img src={e.img} alt={e.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <span className={`absolute top-4 left-4 ${e.color} text-background text-xs px-3 py-1 rounded-full`}>{e.tag}</span>
+                  <span className="absolute top-4 right-4 text-xs text-white/90 bg-black/30 backdrop-blur-sm px-3 py-1 rounded-full">{e.date}</span>
                 </div>
-                <h3 className="font-display font-semibold text-2xl leading-tight mb-2 group-hover:text-accent transition-colors">{e.title}</h3>
-                <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-                  <Icon name="MapPin" size={14} /> {e.place}
-                </p>
+                <div className="p-6">
+                  <h3 className="font-display font-semibold text-2xl leading-tight mb-2 group-hover:text-accent transition-colors">{e.title}</h3>
+                  <p className="text-sm text-muted-foreground flex items-center gap-1.5">
+                    <Icon name="MapPin" size={14} /> {e.place}
+                  </p>
+                </div>
               </article>
             ))}
           </div>
